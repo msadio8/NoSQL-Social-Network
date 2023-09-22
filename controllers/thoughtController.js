@@ -3,7 +3,7 @@ const Thought = require("../models/Thought");
 const User = require("../models/User");
 const Reaction = require("../models/Reaction");
 
-const ThoughtController = {
+const thoughtController = {
   // Handler for the "get all thoughts" API endpoint
     async getAllThoughts(req, res) {
         try {
@@ -15,7 +15,7 @@ const ThoughtController = {
     },
 
   // Handler for the "get thought by ID" API endpoint
-    async getThoughtById(req, res) {
+    async getThoughtsById(req, res) {
         try {
             const thought = await Thought.findById(req.params.thoughtId);
             if (!thought) {
@@ -101,4 +101,4 @@ const ThoughtController = {
     },
 };
 
-module.exports = ThoughtController;
+module.exports = thoughtController;

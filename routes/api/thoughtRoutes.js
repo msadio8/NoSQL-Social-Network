@@ -8,7 +8,7 @@ const {
   updateThoughtById,
   createReaction,
   deleteReaction,
-} = require('../../controllers/thoughController'); // Import controller functions for thought-related operations.
+} = require('../../controllers/thoughtController'); // Import controller functions for thought-related operations.
 
 // Define routes for getting all thoughts and creating a new thought
 router.route('/')
