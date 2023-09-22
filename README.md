@@ -16,6 +16,7 @@ This is a back end application for a social network web application where users 
 
 ## GitHub Repo URL
 
+[click here](https://github.com/msadio8/NoSQL-Social-Network)
 
 ## Technologies Used
 
