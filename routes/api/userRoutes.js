@@ -15,14 +15,12 @@ router.route('/')
   .get(getAllUsers)   // Get all users
   .post(createUser);  // Create a new user
 
-router
-  .route('/:userId')
+router.route('/:userId')
   .get(getUserById)     // Get a user by ID
   .put(updateUserById)  // Update a user by ID
   .delete(deleteUserById); // Delete a user by ID
 
-router
-  .route('/:userId/friends/:friendId')
+router.route('/:userId/friends/:friendId')
   .post(addFriend)    // Add a friend for a user by their ID
   .delete(removeFriend); // Remove a friend for a user by their ID
 

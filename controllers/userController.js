@@ -34,17 +34,16 @@ const userController = {
   //  Update user by ID
     async updateUserById(req, res) {
         try {
-            const userData = await User.findOneAndUpdate(
-               { _id: req.params.id },
-               req.body,
-               { new: true }
-            );
+          const userData = await User.findOneAndUpdate(req.params.id,
+            req.body,
+            { new: true }
+          );
 
-            if (!userData) {
-             return res.status(404).json({ message: 'User not found' });
-            }
+          if (!userData) {
+            return res.status(404).json({ message: 'User not found' });
+          }
 
-            res.json(userData);
+          res.json(userData);
         } catch (err) {
           res.status(500).json(err);
         }
@@ -53,13 +52,13 @@ const userController = {
   // Delete user
     async deleteUserById(req, res) {
         try {
-            const userData = await User.findOneAndDelete({ _id: req.params.id });
+          const userData = await User.findOneAndDelete(req.params.id);
 
-            if (!userData) {
-                return res.status(404).json({ message: 'User not found' });
-            }
-
-            res.json({ message: 'User deleted successfully' });
+          if (!userData) {
+            return res.status(404).json({ message: 'User not found' });
+          }
+          res.status(200).json({ message: 'User deleted successfully' });
+          
         } catch (err) {
           res.status(500).json(err);
         }

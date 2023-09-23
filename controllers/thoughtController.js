@@ -40,13 +40,14 @@ const thoughtController = {
   // Handler for the "delete thought" API endpoint
     async deleteThought(req, res) {
         try {
-          const thought = await Thought.findByIdAndDelete(req.params.thoughtId);
+          const thought = await Thought.findByIdAndDelete({_id:req.params.thoughtId});
+
             if (!thought) {
               return res.status(404).json({ message: "Thought not found" });
             }
-            res.status(204).end(); // No content response for successful deletion
+            res.status(200).json({ message : "thought successfully deleted!"}); // No content response for successful deletion
         } catch (err) {
-           res.status(500).json(err);
+          res.status(500).json(err);
         }
     },
 
@@ -69,16 +70,16 @@ const thoughtController = {
   // Handler for the "create reaction" API endpoint
     async createReaction(req, res) {
         try {
-            const thought = await Thought.findByIdAndUpdate(
-              {_id:req.params.thoughtId},
-              { $addToSet: { reactions: req.body } },
-              { runValidators: true, new: true }
-            );
-            if (!thought) {
-              return res.status(404).json({ message: "Thought not found" });
-            }
-            res.json(thought);
-        }catch (e) {
+          const thought = await Thought.findByIdAndUpdate(
+            {_id:req.params.thoughtId},
+            {$addToSet: {reactions: req.body}},
+            {runValidators: true, new: true}
+          );
+          if (!thought) {
+            return res.status(404).json({message:"Thought not found"});
+          }
+          res.json(thought);
+        } catch (e) {
           res.status(500).json(e);
         }
     },
@@ -86,15 +87,15 @@ const thoughtController = {
   // Handler for the "delete reaction" API endpoint
     async deleteReaction(req, res) {
         try {
-            const thought = await Thought.findByIdAndUpdate(
-               {_id: req.params.thoughtId},
-               { $pull: { reactions: { reactionId: req.params.reactionId } } },
-               { runValidators: true, new: true }
-            );
-            if (!thought) {
-                return res.status(404).json({ message: "Thought not found" });
-            }
-            res.json(thought);
+          const thought = await Thought.findByIdAndUpdate(
+            {_id: req.params.thoughtId},
+            {$pull: { reactions: {reactionId: req.params.reactionId}}},
+            {runValidators: true, new: true}
+          );
+          if (!thought) {
+            return res.status(404).json({message:"Thought not found"});
+          }
+          res.json(thought);
         } catch (e) {
           res.status(500).json(e);
         }

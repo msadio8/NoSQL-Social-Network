@@ -16,8 +16,7 @@ router.route('/')
   .post(createThought); // POST: Create a new thought
 
 // Define routes for getting a thought by ID, updating a thought by ID, and deleting a thought by ID
-router
-  .route('/:thoughtId')
+router.route('/:thoughtId')
   .get(getThoughtsById) // GET: Retrieve a thought by its ID
   .put(updateThoughtById) // PUT: Update a thought by its ID
   .delete(deleteThought); // DELETE: Delete a thought by its ID
