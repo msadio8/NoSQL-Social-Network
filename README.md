@@ -48,9 +48,11 @@ in the integrated terminal run the following
 
 ## Screenshots
 
+![Alt text](<public/Screenshot 2023-09-25 at 11.34.52 am.png>)
 
+![Alt text](<public/Screenshot 2023-09-25 at 11.35.19 am (2).png>)
 
-
+![Alt text](<public/Screenshot 2023-09-25 at 11.35.19 am.png>)
 ## Walkthrough Video 
 
-* [🎬-link]()
+* [🎬-link](https://drive.google.com/file/d/1qyrJoq-56J43ta-U5pB_WNjTksaTNeHF/view)
